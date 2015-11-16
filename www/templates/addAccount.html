@@ -1,0 +1,23 @@
+<ion-view title="Add Account">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input" name="Account Name">
+                <span class="input-label">Account Name</span>
+                <input ng-model="vm.accountInfo.name" type="text" placeholder="Account Name">
+            </label>
+            <label class="item item-input" name="Account Type">
+                <span class="input-label">Account Type</span>
+                <input ng-model="vm.accountInfo.type" type="text" placeholder="Checking / Savings ">
+            </label>
+            <label class="item item-input" name="Institution Name">
+                <span class="input-label">Insitution</span>
+                <input ng-model="vm.accountInfo.institution" type="text" placeholder="Institution Name">
+            </label>
+            <label class="item item-input" name="Amount">
+                <span class="input-label">Amount</span>
+                <input ng-model="vm.accountInfo.amount" type="text" placeholder="$ Amount">
+            </label>
+        </form>
+        <a href="#/accounts" class="button button-stable button-block" ng-click="vm.addAccount()">Add Account</a>
+    </ion-content>
+</ion-view>
