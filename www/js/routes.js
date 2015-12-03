@@ -32,6 +32,13 @@ angular.module('budgetApp.routes', [])
       controllerAs: 'vm'
     })
 
+    .state('accountDetail', {
+      url: '/accountDetail',
+      templateUrl: 'templates/accountDetail.html',
+      controller: 'accountDetailCtrl',
+      controllerAs: 'vm'
+    })
+
     .state('addAccount', {
       url: '/addAccount',
       templateUrl: 'templates/addAccount.html',

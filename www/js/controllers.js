@@ -12,19 +12,27 @@ angular.module('budgetApp.controllers', [])
 
 })
 
-.controller('accountsCtrl', function($scope) {
+.controller('accountsCtrl', function(AccountService) {
   var  vm = this;
-  // Get a database reference to our posts
   var ref = new Firebase("https://bigpicture.firebaseio.com/accounts");
 
-// Attach an asynchronous callback to read the data at our posts reference
   ref.on("value", function(snapshot) {
-    console.log(snapshot.val());
     vm.account = snapshot.val();
   });
+
+  vm.setAccount = function(data) {
+    AccountService.setAccount(data);
+    console.log(data);
+  };
 })
 
-.controller('addAccountCtrl', function(Accounts) {
+.controller('accountDetailCtrl', function(AccountService) {
+  var vm = this;
+  vm.account = AccountService.vm.getAccount();
+  console.log(vm.account);
+})
+
+.controller('addAccountCtrl', function(AccountFactory) {
   var vm = this;
   vm.accountInfo = {
     name : '',
@@ -32,10 +40,8 @@ angular.module('budgetApp.controllers', [])
     institution : '',
     amount : ''
   }
-  vm.accounts = Accounts;
+  vm.accounts = AccountFactory;
   vm.addAccount = function() {
-    console.log("inside addAccouts");
-
     if (vm.accountInfo.name) {
       vm.accounts.$add(
         vm.accountInfo
