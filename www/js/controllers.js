@@ -13,7 +13,15 @@ angular.module('budgetApp.controllers', [])
 })
 
 .controller('accountsCtrl', function($scope) {
+  var  vm = this;
+  // Get a database reference to our posts
+  var ref = new Firebase("https://bigpicture.firebaseio.com/accounts");
 
+// Attach an asynchronous callback to read the data at our posts reference
+  ref.on("value", function(snapshot) {
+    console.log(snapshot.val());
+    vm.account = snapshot.val();
+  });
 })
 
 .controller('addAccountCtrl', function(Accounts) {
