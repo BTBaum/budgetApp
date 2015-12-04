@@ -22,18 +22,12 @@ angular.module('budgetApp.controllers', [])
 
   vm.setAccount = function(data) {
     AccountService.setAccount(data);
-    console.log(data);
-    console.log(AccountService.getAccount());
-
   };
 })
 
 .controller('accountDetailCtrl', function(AccountService) {
   var vm = this;
-  var info;
-  info = AccountService.getAccount();
-  vm.accountInfo = info;
-  console.log(vm.accountInfo);
+  vm.accountInfo = AccountService.getAccount();
 })
 
 .controller('addAccountCtrl', function(AccountFactory) {
