@@ -1,7 +1,7 @@
 <ion-view title="Account Detail">
     <ion-content padding="true" class="has-header">
-        <ion-list>
-            <ion-item>{{vm.account}}
+        <ion-list >
+            <ion-item ng-repeat="account in vm.accountInfo">{{account}}
             </ion-item>
         </ion-list>
     </ion-content>

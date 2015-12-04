@@ -1,7 +1,6 @@
 <ion-view title="Accounts">
     <ion-content padding="true" class="has-header">
         <ion-list>
-          <!-- Get back firebase data and set it to vm.something. Ng repeat through vm.something.name/amount -->
             <ion-item ng-repeat="account in vm.account" ng-click="vm.setAccount(account)" href="#/accountDetail">
               <div class="row">
                 <div class="col col-50">{{account.name}} </div>
