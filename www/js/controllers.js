@@ -48,13 +48,22 @@ angular.module('budgetApp.controllers', [])
   };
 })
 
-.controller('savingsGoalsCtrl', function(SavingsGoalFactory) {
+.controller('savingsGoalsCtrl', function(SavingsGoalService) {
   var vm = this;
   var savingRef = new Firebase("https://bigpicture.firebaseio.com/savingsGoals");
 
   savingRef.on("value", function(snapshot) {
     vm.savings = snapshot.val();
   });
+
+  vm.setGoal = function(data) {
+    SavingsGoalService.setGoal(data);
+  }
+})
+
+.controller('savingsGoalDetailCtrl', function(SavingsGoalService) {
+  var vm = this;
+  vm.goalInfo = SavingsGoalService.getGoal();
 })
 
 .controller('addSavingsGoalsCtrl', function(SavingsGoalFactory) {
@@ -63,7 +72,7 @@ angular.module('budgetApp.controllers', [])
     name : '',
     amount : ''
   }
-  
+
   vm.savings = SavingsGoalFactory;
   vm.addSavingsGoal = function() {
     if (vm.savingsGoalInfo.name) {

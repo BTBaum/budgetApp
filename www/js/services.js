@@ -23,3 +23,17 @@ angular.module('budgetApp.services', [])
     var savingsGoalRef = new Firebase("https://bigpicture.firebaseio.com/savingsGoals");
     return $firebaseArray(savingsGoalRef);
   })
+
+  .service("SavingsGoalService", function($firebaseArray) {
+    var vm = this;
+    var goal;
+    vm.setGoal = function(data) {
+      goal = data;
+      return goal;
+    }
+
+    vm.getGoal = function() {
+      vm.data = goal;
+      return vm.data;
+    }
+  })

@@ -1,7 +1,7 @@
 <ion-view title="Savings Goals">
     <ion-content padding="true" class="has-header">
         <ion-list>
-          <ion-item ng-repeat="goal in vm.savings">
+          <ion-item ng-repeat="goal in vm.savings" ng-click="vm.setGoal(goal)" href="#/savingsGoalDetail">
             <div class="row">
               <div class="col col-50">{{goal.name}} </div>
               <div class="col col-50 text-right">{{goal.amount}} </div>

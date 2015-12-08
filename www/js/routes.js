@@ -56,6 +56,13 @@ angular.module('budgetApp.routes', [])
       controllerAs: 'vm'
     })
 
+    .state('savingsGoalDetail', {
+      url: '/savingsGoalDetail',
+      templateUrl: 'templates/savingsGoalDetail.html',
+      controller: 'savingsGoalDetailCtrl',
+      controllerAs: 'vm'
+    })
+
     .state('addSavingsGoals', {
       url: '/addSavingsGoals',
       templateUrl: 'templates/addSavingsGoals.html',
