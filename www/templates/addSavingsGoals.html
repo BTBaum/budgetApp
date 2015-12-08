@@ -1,15 +1,16 @@
 <ion-view title="Add Savings Goals">
     <ion-content padding="true" class="has-header">
         <form class="list">
-            <label class="item item-input">
+            <label class="item item-input" name="Savings Goal Name">
                 <span class="input-label">Goal Name:</span>
-                <input type="text" placeholder="ex. Power Company">
+                <input ng-model="vm.savingsGoalInfo.name" type="text" placeholder="ex. New Car">
             </label>
-            <label class="item item-input" name="Amount Due">
+            <label class="item item-input" name="Savings Goal Amount">
                 <span class="input-label">Goal Amount:</span>
-                <input type="number" placeholder="ex. $20.00">
+                <input ng-model="vm.savingsGoalInfo.amount" type="text" placeholder="ex. $20.00">
             </label>
         </form>
-        <a href="#/savingsGoals" class="button button-stable button-block ">Add Savings Goal</button>
+        <button type="button" name="button" ng-click="vm.callFunction()"></button>
+        <a ng-href="#/savingsGoals" type="button" class="button button-stable button-block" ng-click="vm.addSavingsGoal()">Add Savings Goal</a>
     </ion-content>
 </ion-view>

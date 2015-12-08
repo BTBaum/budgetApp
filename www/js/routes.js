@@ -10,19 +10,22 @@ angular.module('budgetApp.routes', [])
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
-      controller: 'loginCtrl'
+      controller: 'loginCtrl',
+      controllerAs: 'vm'
     })
 
     .state('signup', {
       url: '/signup',
       templateUrl: 'templates/signup.html',
-      controller: 'signupCtrl'
+      controller: 'signupCtrl',
+      controllerAs: 'vm'
     })
 
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'homeCtrl'
+      controller: 'homeCtrl',
+      controllerAs: 'vm'
     })
 
     .state('accounts', {
@@ -49,43 +52,50 @@ angular.module('budgetApp.routes', [])
     .state('savingsGoals', {
       url: '/savingsGoals',
       templateUrl: 'templates/savingsGoals.html',
-      controller: 'savingsGoalsCtrl'
+      controller: 'savingsGoalsCtrl',
+      controllerAs: 'vm'
     })
 
     .state('addSavingsGoals', {
       url: '/addSavingsGoals',
       templateUrl: 'templates/addSavingsGoals.html',
-      controller: 'addSavingsGoalsCtrl'
+      controller: 'addSavingsGoalsCtrl',
+      controllerAs: 'vm'
     })
 
     .state('bills', {
       url: '/bills',
       templateUrl: 'templates/bills.html',
-      controller: 'billsCtrl'
+      controller: 'billsCtrl',
+      controllerAs: 'vm'
     })
 
     .state('addBills', {
       url: '/addBills',
       templateUrl: 'templates/addBills.html',
-      controller: 'addBillsCtrl'
+      controller: 'addBillsCtrl',
+      controllerAs: 'vm'
     })
 
     .state('transactions', {
       url: '/transactions',
       templateUrl: 'templates/transactions.html',
-      controller: 'transactionsCtrl'
+      controller: 'transactionsCtrl',
+      controllerAs: 'vm'
     })
 
     .state('addTransaction', {
       url: '/addTransaction',
       templateUrl: 'templates/addTransaction.html',
-      controller: 'addTransactionCtrl'
+      controller: 'addTransactionCtrl',
+      controllerAs: 'vm'
     })
 
     .state('budget', {
       url: '/budget',
       templateUrl: 'templates/budget.html',
-      controller: 'budgetCtrl'
+      controller: 'budgetCtrl',
+      controllerAs: 'vm'
     });
 
   // if none of the above states are matched, use this as the fallback

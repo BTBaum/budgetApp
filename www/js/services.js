@@ -18,3 +18,10 @@ angular.module('budgetApp.services', [])
       return vm.data;
     }
   })
+
+  .factory("SavingsGoalFactory", function($firebaseArray) {
+    var vm = this;
+    var savingsGoalRef = new Firebase("https://bigpicture.firebaseio.com/savingsGoals");
+    console.log(savingsGoalRef);
+    return $firebaseArray(savingsGoalRef);
+  })

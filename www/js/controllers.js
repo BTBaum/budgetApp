@@ -14,9 +14,9 @@ angular.module('budgetApp.controllers', [])
 
 .controller('accountsCtrl', function(AccountService) {
   var  vm = this;
-  var ref = new Firebase("https://bigpicture.firebaseio.com/accounts");
+  var accountRef = new Firebase("https://bigpicture.firebaseio.com/accounts");
 
-  ref.on("value", function(snapshot) {
+  accountRef.on("value", function(snapshot) {
     vm.account = snapshot.val();
   });
 
@@ -48,12 +48,35 @@ angular.module('budgetApp.controllers', [])
   };
 })
 
-.controller('savingsGoalsCtrl', function($scope) {
+.controller('savingsGoalsCtrl', function(SavingsGoalFactory) {
+  var vm = this;
+  var savingRef = new Firebase("https://bigpicture.firebaseio.com/savingsGoals");
+  vm.callFunctionWrong = function() {
+    console.log("This is the wrong controller");
+  }
 
+  savingRef.on("value", function(snapshot) {
+    vm.savings = snapshot.val();
+  });
 })
 
-.controller('addSavingsGoalsCtrl', function($scope) {
-
+.controller('addSavingsGoalsCtrl', function(SavingsGoalFactory) {
+  var vm = this;
+  vm.savingsGoalInfo = {
+    name : '',
+    amount : ''
+  }
+  vm.callFunction = function() {
+     console.log(vm.savingsGoalInfo);
+  }
+  vm.savings = SavingsGoalFactory;
+  vm.addSavingsGoal = function() {
+    if (vm.savingsGoalInfo.name) {
+      vm.savings.$add(
+        vm.savingsGoalInfo
+      );
+    }
+  };
 })
 
 .controller('billsCtrl', function($scope) {
