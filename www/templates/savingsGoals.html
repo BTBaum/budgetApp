@@ -1,6 +1,13 @@
 <ion-view title="Savings Goals">
     <ion-content padding="true" class="has-header">
-        <ion-list></ion-list>
+        <ion-list>
+          <ion-item ng-repeat="goal in vm.savings">
+            <div class="row">
+              <div class="col col-50">{{goal.name}} </div>
+              <div class="col col-50 text-right">{{goal.amount}} </div>
+            </div>
+          </ion-item>
+        </ion-list>
         <a ng-href="#/addSavingsGoals" class="button button-stable button-block" ng-click="vm.callFunction()">Add Savings Goal</a>
     </ion-content>
 </ion-view>

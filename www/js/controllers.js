@@ -51,9 +51,6 @@ angular.module('budgetApp.controllers', [])
 .controller('savingsGoalsCtrl', function(SavingsGoalFactory) {
   var vm = this;
   var savingRef = new Firebase("https://bigpicture.firebaseio.com/savingsGoals");
-  vm.callFunctionWrong = function() {
-    console.log("This is the wrong controller");
-  }
 
   savingRef.on("value", function(snapshot) {
     vm.savings = snapshot.val();
@@ -66,9 +63,7 @@ angular.module('budgetApp.controllers', [])
     name : '',
     amount : ''
   }
-  vm.callFunction = function() {
-     console.log(vm.savingsGoalInfo);
-  }
+  
   vm.savings = SavingsGoalFactory;
   vm.addSavingsGoal = function() {
     if (vm.savingsGoalInfo.name) {
