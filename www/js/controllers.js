@@ -1,5 +1,20 @@
 angular.module('budgetApp.controllers', [])
 
+.controller("AuthCtrl", function(Auth) {
+    var vm = this;
+    vm.login = function() {
+      Auth.$authWithOAuthPopup("github").then(function(authData) {
+        console.log(authData);
+      }).catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    vm.logout = function() {
+      Auth.$unauth();
+    }
+})
+
 .controller('loginCtrl', function($scope) {
 
 })

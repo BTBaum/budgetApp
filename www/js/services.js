@@ -1,4 +1,10 @@
 angular.module('budgetApp.services', [])
+  .factory("Auth", function($firebaseAuth) {
+    var vm = this;
+    var ref = new Firebase("https://bigpicture.firebaseio.com");
+    return $firebaseAuth(ref);
+  })
+
   .factory("AccountFactory", function($firebaseArray) {
     var accountsRef = new Firebase("https://bigpicture.firebaseio.com/accounts");
     return $firebaseArray(accountsRef);
